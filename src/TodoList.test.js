@@ -26,13 +26,21 @@ test("renders the empty todo list", () => {
 });
 
 test("if an item is added, it shows up in the list", () => {
+  // note: the added item's checkbox is given an id attribute with the same value as the item's text
   render(<TodoList />);
   userEvent.type(screen.getByPlaceholderText(/add an item.../i), "test item");
   userEvent.click(screen.getByRole("button", { name: /add/i }));
-  const todolistItem = screen.getByText((content, element) => {
-    return (
-      element.tagName.toLowerCase() === "span" && content.includes("test item")
-    );
+  const newItem = screen.getByRole("checkbox", { id: /test item/i });
+  expect(newItem).toBeInTheDocument();
+});
+
+test("if an item is deleted, it is removed from the list", () => {
+  render(<TodoList />);
+  userEvent.type(screen.getByPlaceholderText(/add an item.../i), "test item");
+  userEvent.click(screen.getByRole("button", { name: /add/i }));
+  const deleteButton = screen.getByText((content, element) => {
+    return element.tagName.toLowerCase() === "span" && content === "❌";
   });
-  expect(todolistItem).toBeInTheDocument();
+  userEvent.click(deleteButton);
+  expect(screen.queryByRole("checkbox", { id: /test item/i })).toBeNull();
 });

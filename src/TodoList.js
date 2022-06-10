@@ -73,6 +73,7 @@ const TodoList = () => {
                   id={id}
                   checked={item.checked}
                   name={item.text}
+                  data-id={item.text}
                 />
                 <span className={item.checked ? "checked" : ""}>
                   {item.text}
