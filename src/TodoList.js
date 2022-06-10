@@ -1,17 +1,8 @@
-import React, { useState, useEffect } from "react";
-
-const testList = [
-  { text: "first todo item", checked: false },
-  { text: "second todo item", checked: false },
-];
+import React, { useState } from "react";
 
 const TodoList = () => {
   const [todoList, setTodoList] = useState([]);
   const [todoInputItem, setTodoInputItem] = useState("");
-
-  useEffect(() => {
-    setTodoList(testList);
-  }, []);
 
   const onChangeInput = (e) => {
     setTodoInputItem(e.target.value);
@@ -81,6 +72,7 @@ const TodoList = () => {
                   onChange={onChangeCheckbox}
                   id={id}
                   checked={item.checked}
+                  name={item.text}
                 />
                 <span className={item.checked ? "checked" : ""}>
                   {item.text}
