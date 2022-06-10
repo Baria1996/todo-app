@@ -1,38 +1,68 @@
+body {
+  background-color: #eee;
+}
+
 .App {
-  text-align: center;
+  max-width: 90vw;
+  margin: auto;
+  padding-top: 2vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app-header {
+  padding-left: 1vw;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.todo-list-items {
+  padding: 1vw;
+  width: 50vw;
+  display: inline-block;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.todo-list-item {
+  padding: 1vw;
+  border-radius: 5px;
+  background-color: white;
+  margin-bottom: 1vh;
 }
 
-.App-link {
-  color: #61dafb;
+.checked {
+  text-decoration: line-through;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.todo-list-form {
+  padding: 1%;
+  width: 50vw;
+  display: inline-block;
+}
+
+.form-input {
+  padding: 2%;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid rgb(189, 189, 189);
+  width: 40vw;
+}
+
+.form-button {
+  margin-left: 2%;
+  padding: 2%;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(189, 189, 189);
+  width: 6vw;
+  float: right;
+}
+
+.form-button:hover {
+  background-color: rgb(155, 155, 155);
+  cursor: pointer;
+}
+
+.delete-icon {
+  float: right;
+  cursor: pointer;
 }
